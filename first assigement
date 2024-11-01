@@ -1,0 +1,158 @@
+Exercise 1: Comments
+Write a program that prints your name and includes both single-line and multi-line comments explaining what each part of your code does.
+
+solution:
+# This is a simple Python program to print my name
+# Define the name to be printed
+name = "ChatGPT"  # Assigning the name "ChatGPT" to the variable 'name'
+# Print the name to the console
+print(name)  # Output the value of 'name' to the screen
+
+'''
+This program consists of:
+1. A variable 'name' that stores the name as a string.
+2. A print statement that displays the value of 'name'.
+'''
+
+
+
+Exercise 2: Error Identification
+Below is a piece of code with some intentional errors. Identify and correct the errors. Explain the type of error for each correction made.
+print("Welcome to Python!"
+result = 10 / 0              
+my_list = [1, 2, 3
+print(my_list[3])
+
+solution:
+print("Welcome to Python!"
+result = 10 / 0              
+my_list = [1, 2, 3
+print(my_list[3])
+
+Exercise 3: Variable Assignment
+Create a program that:
+Assign your name (string), age (integer), height (float), and whether you are a student (boolean) to variables.
+Prints each variable with an appropriate message.
+
+solution:
+
+# Variable assignments
+name = "ChatGPT"       
+age = 2                
+height = 1.75          
+is_student = False     
+
+# Printing each variable with an appropriate message
+print("Name:", name)                    # Output the name
+print("Age:", age)                      # Output the age
+print("Height:", height, "meters")     # Output the height with units
+print("Are you a student?", is_student) # Output the student status
+
+Exercise 4: Descriptive Variable Names
+Rewrite the following code using descriptive variable names:
+
+a = 5
+b = 10
+c = a * b
+
+solutin:
+
+# Assigning values to descriptive variable names
+first_number = 5                
+second_number = 10             
+# Calculating the product of the two numbers
+product_of_numbers = first_number * second_number
+# Output the result
+print("The product of", first_number, "and", second_number, "is", product_of_numbers)
+
+Exercise 5: Numeric Types and Operations
+Perform the following operations and print the results:
+Add two integers
+Subtract a float from an integer
+Multiply a float by a complex number
+Divide an integer by zero (observe and write down the error)
+
+solution:
+
+# Operation 1: Add two integers
+integer_one = 10
+integer_two = 5
+sum_result = integer_one + integer_two
+print("Addition of two integers:", sum_result)
+# Operation 2: Subtract a float from an integer
+integer_value = 10
+float_value = 2.5
+subtraction_result = integer_value - float_value
+print("Subtraction of a float from an integer:", subtraction_result)
+# Operation 3: Multiply a float by a complex number
+float_number = 3.0
+complex_number = 2 + 4j
+multiplication_result = float_number * complex_number
+print("Multiplication of a float by a complex number:", multiplication_result)
+# Operation 4: Divide an integer by zero (will cause an error)
+
+Exercise 6: Built-in Functions
+Write a program that:
+Takes a list of numbers as input from the user.
+Uses the abs(), max(), and min() functions to find the absolute values, maximum, and minimum of the numbers.
+Prints the results with appropriate messages.
+Example input: [-5, 3.2, -1, 0, 12]
+
+
+solution:
+
+# Get input from the user
+user_input = input("Enter a list of numbers separated by commas (e.g., -5, 3.2, -1, 0, 12): ")
+# Convert the input string into a list of numbers
+number_list = [float(num) for num in user_input.split(',')]
+# Calculate the absolute values
+absolute_values = [abs(num) for num in number_list]
+# Find the maximum and minimum values
+maximum_value = max(number_list)
+minimum_value = min(number_list)
+# Print the results
+print("Original list of numbers:", number_list)
+print("Absolute values:", absolute_values)
+print("Maximum value:", maximum_value)
+print("Minimum value:", minimum_value)
+
+Exercise 7: Arithmetic Operations
+Create a simple calculator program that:
+Prompts the user to enter two numbers.
+Asks the user to select an operation: addition, subtraction, multiplication, or division.
+Performs the selected operation and prints the result. Handle division by zero gracefully.
+
+solution:
+
+# Function to perform the selected operation
+def calculator():
+    # Prompt the user to enter two numbers
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    
+    # Ask the user to select an operation
+    print("Select an operation:")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    
+    operation = input("Enter the number of the operation (1/2/3/4): ")
+    
+    # Perform the selected operation
+    if operation == '1':
+        result = num1 + num2
+        print("Result:", result)
+    elif operation == '2':
+        result = num1 - num2
+        print("Result:", result)
+    elif operation == '3':
+        result = num1 * num2
+        print("Result:", result)
+    elif operation == '4':
+        # Handle division by zero
+        if num2 == 0:
+            print("Error: Division by zero is not allowed.")
+        else:
+            result = num1 / num2
+        
