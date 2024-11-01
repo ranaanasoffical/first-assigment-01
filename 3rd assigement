@@ -1,0 +1,122 @@
+Question 1:Basic Class Creation create a python class book that has the folllowing attributes and methods attributes: title, author, pages. Method: get_info() that returns a string with the title, author, and number of pages. write code to create two objects of the book class and print their information using the get_info () method
+Solution No.1
+#creating the book class
+class Book:
+    def _init_(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+#get_info method that returns the information of the book
+    def get_info(self):
+        return f'Title: {self.title}, Author: {self.author}, Pages: {self.pages}'
+# Create two Book objects
+book1 = Book("Jannat ke paty", "Nemrah Ahmed", 1474)
+book2 = Book("Yaram", "Sumaira Hameed", 1025)
+# Print their information
+print(book1.get_info())
+print(book2.get_info())
+#Question 2: Class Inheritance Create a class Person with the following attributes:
+name, age.
+Then create a class Student that inherits from Person and has an additional attribute student_id.
+Write a method in Student to display the student's details, including the inherited attributes. Create an object of Student and print the details.
+Solution No.2
+class Person:
+    def _init_(self, name, age):
+        self.name = name #intialize name attribute
+        self.age = age # intialize age attribute
+class Student(Person):
+    def _init_(self, name, age, student_id):
+        super()._init_(name, age)
+        self.student_id = student_id
+#print student info
+    def display_details(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Student ID: {self.student_id}")
+# Create an object of Student
+student = Student("Aliyan", 24, "00112233")
+# Print the student info
+student.display_details()
+#Question 3: Writing and Reading Files
+Write a Python program to:
+Create a text file student_data.txt.
+Use a for loop to write the names and scores of 5 students to the file
+After writing, read the file and print its contents line by line
+Solution No.3
+# Define the student data
+file = open("student_data.txt" ,"w")
+# Define the student data
+students = [
+    ("Ahmed", 49),
+    ("Bob", 99),
+    ("Fakhar", 100),
+    ("Rizwan", 79),
+    ("Shaheen", 39)
+]
+# Create and write to the file
+with open('student_data.txt', 'w') as file:
+    for name, score in students:
+        file.write(f"{name},{score}\n")
+# Read and print the contents of the file
+with open('student_data.txt', 'r') as file:
+    print("Contents of student_data.txt:")
+    for line in file:
+        print(line.strip())  # Print each line without extra newlines
+Question 4: Managing Student Data with OOP and File Handling
+Create a class StudentRecord that handles student records. The class should:
+Have methods to add a student's name and score.
+Save the record to a text file records. txt.
+Have a method to read and print all student records from the file.
+Create an instance of StudentRecord and use it to add at least three students. Then, display all the records from the file.
+Solution No.4
+class StudentRecord:
+    def _init_(self, filename='records.txt'):
+        self.filename = filename
+    def add_student(self, name, score):
+        """Add a student's name and score to the file."""
+        with open(self.filename, 'a') as file:
+            file.write(f"{name},{score}\n")
+    def read_records(self):
+        """Read and print all student records from the file."""
+        try:
+            with open(self.filename, 'r') as file:
+                records = file.readlines()
+                if records:
+                    print("Student Records:")
+                    for record in records:
+                        name, score = record.strip().split(',')
+                        print(f"Name: {name}, Score: {score}")
+                else:
+                    print("No records found.")
+        except FileNotFoundError:
+            print("No records file found.")
+# Create an instance of StudentRecord
+student_record = StudentRecord()
+# Add students
+student_record.add_student("Ahmad", 85)
+student_record.add_student("Tahir", 90)
+student_record.add_student("Rizwan", 78)
+# Display all records
+student_record.read_records()
+Question 5: Exception Handling in File Operations
+Write a Python program to:
+Attempt to open a file non_existent_file.txt (a file that doesn't exist).
+Use exception handling to catch the FileNotFoundError and print an error message.
+After handling the exception, create the file and write a custom message to it
+Solution No.5
+try:
+    # Attempt to open a non-existent file
+    with open('non_existent_file.txt', 'r') as file:
+        content = file.read()
+except FileNotFoundError:
+    print("Error: The file 'non_existent_file.txt' was not found.")
+    # Create the file and write a custom message
+    with open('non_existent_file.txt', 'w') as file:
+        file.write("This is a newly created file with a custom message.")
+    print("A new file has been created with the custom message.")
+# Optional: Read the content of the newly created file to verify
+with open('non_existent_file.txt', 'r') as file:
+    content = file.read()
+    print("File content:")
+    print(content)
+
